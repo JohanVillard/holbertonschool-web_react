@@ -11,6 +11,7 @@ let student1: Student = {
   age: 25,
   location: "Bordeaux",
 };
+
 let student2: Student = {
   firstName: "Jane",
   lastName: "Doe",

@@ -3,14 +3,17 @@ namespace Subjects {
     experienceTeachingJava?: number;
   }
 
-  export class Java {
+  export class Java extends Subject {
     getRequirements(): string {
       return "Here is the list of requirements for Java";
     }
 
-    getAvailableTeacher(teacher: Teacher): string {
-      if (teacher.experienceTeachingJava > 0) {
-        return `Available Teacher: ${teacher.firstName}`;
+    getAvailableTeacher(): string {
+      if (
+        this.teacher.experienceTeachingJava !== undefined &&
+        this.teacher.experienceTeachingJava > 0
+      ) {
+        return `Available Teacher: ${this.teacher.firstName}`;
       }
 
       return "No available teacher";

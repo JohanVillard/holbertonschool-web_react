@@ -39,7 +39,11 @@ class Teacher implements TeacherInterface {
 }
 
 function createEmployee(salary: number | string): Director | Teacher {
-  if (typeof salary === "number" && salary < 500) {
+  if (typeof salary !== "number" && typeof salary === "string") {
+    salary = parseInt(salary.replace("$", ""));
+  }
+
+  if (salary < 500) {
     return new Teacher();
   } else {
     return new Director();
@@ -69,3 +73,18 @@ function teachClass(todayClass: Subjects) {
     return "Teaching History";
   }
 }
+
+console.log("P0T5");
+const employee1 = createEmployee(200);
+console.log(employee1);
+console.log(employee1.workFromHome());
+const employee2 = createEmployee(1000);
+console.log(employee2);
+console.log(employee2.workFromHome());
+const employee3 = createEmployee("$500");
+console.log(employee3);
+console.log(employee3.getCoffeeBreak());
+
+console.log("POT6");
+executeWork(createEmployee(200));
+executeWork(createEmployee(1000));
