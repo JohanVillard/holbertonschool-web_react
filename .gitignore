@@ -1,0 +1,5 @@
+**/node_modules/
+
+# Ignore other potential files
+.DS_Store
+npm-debug.log
